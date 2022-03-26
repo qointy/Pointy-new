@@ -1,0 +1,186 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-1,
+				0
+			],
+			"loop": false,
+			"anim": "idle",
+			"fps": 24,
+			"name": "underestimating idle",
+			"indices": []
+		},
+		{
+			"offsets": [
+				-28,
+				24
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP-alt",
+			"indices": [],
+			"name": "underestimating up copy"
+		},
+		{
+			"offsets": [
+				-38,
+				2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"indices": [],
+			"name": "underestimating right copy"
+		},
+		{
+			"offsets": [
+				-38,
+				2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"name": "underestimating right"
+		},
+		{
+			"offsets": [
+				-28,
+				24
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"name": "underestimating up"
+		},
+		{
+			"offsets": [
+				-39,
+				-2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"name": "underestimating down"
+		},
+		{
+			"offsets": [
+				-39,
+				-2
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"indices": [],
+			"name": "underestimating down copy"
+		},
+		{
+			"offsets": [
+				18,
+				1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			],
+			"name": "underestimating left"
+		},
+		{
+			"offsets": [
+				18,
+				1
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"indices": [],
+			"name": "underestimating left copy"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/pointyfnf",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "pointy",
+	"flip_x": false,
+	"healthbar_colors": [
+		63,
+		108,
+		181
+	],
+	"camera_position": [
+		-10,
+		-50
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

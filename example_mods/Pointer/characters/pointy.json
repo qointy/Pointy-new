@@ -1,0 +1,122 @@
+{
+	"animations": [
+		{
+			"loop": false,
+			"offsets": [
+				190,
+				-1
+			],
+			"fps": 24,
+			"anim": "singLEFT",
+			"indices": [],
+			"name": "AAA NEW POINTY left"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				-65
+			],
+			"fps": 24,
+			"anim": "singDOWN",
+			"indices": [],
+			"name": "AAA NEW POINTY down"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-11,
+				34
+			],
+			"fps": 24,
+			"anim": "singUP",
+			"indices": [],
+			"name": "AAA NEW POINTY up"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-24,
+				-55
+			],
+			"fps": 24,
+			"anim": "singRIGHT",
+			"indices": [],
+			"name": "AAA NEW POINTY right"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				0,
+				0
+			],
+			"fps": 24,
+			"anim": "idle",
+			"indices": [],
+			"name": "AAA NEW POINTY idle"
+		},
+		{
+			"offsets": [
+				190,
+				0
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singLEFT-alt",
+			"loop": false,
+			"name": "AAA NEW POINTY slowleft"
+		},
+		{
+			"offsets": [
+				0,
+				-64
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singDOWN-alt",
+			"loop": false,
+			"name": "AAA NEW POINTY slowdown"
+		},
+		{
+			"offsets": [
+				-10,
+				34
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singUP-alt",
+			"loop": false,
+			"name": "AAA NEW POINTY slowup"
+		},
+		{
+			"offsets": [
+				-24,
+				-55
+			],
+			"indices": [],
+			"fps": 24,
+			"anim": "singRIGHT-alt",
+			"loop": false,
+			"name": "AAA NEW POINTY slowright"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/Pointy",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "pointy",
+	"flip_x": false,
+	"healthbar_colors": [
+		63,
+		108,
+		181
+	],
+	"camera_position": [
+		-70,
+		-20
+	],
+	"sing_duration": 6.1,
+	"scale": 1
+}

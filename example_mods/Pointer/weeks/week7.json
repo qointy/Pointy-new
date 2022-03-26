@@ -1,0 +1,48 @@
+{
+	"storyName": "ARCADE DATE",
+	"hideFreeplay": false,
+	"weekBackground": "stage",
+	"weekBefore": "tutorial",
+	"freeplayColor": [
+		117,
+		234,
+		255
+	],
+	"startUnlocked": true,
+	"songs": [
+		[
+			"Drift",
+			"pointy",
+			[
+				117,
+				234,
+				255
+			]
+		],
+		[
+			"Dynamism",
+			"pointy",
+			[
+				117,
+				234,
+				255
+			]
+		],
+		[
+			"Revolution",
+			"pointy",
+			[
+				117,
+				234,
+				255
+			]
+		]
+	],
+	"hideStoryMode": false,
+	"weekCharacters": [
+		"pointy",
+		"bf",
+		"gf"
+	],
+	"weekName": "week7"
+}

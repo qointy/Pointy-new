@@ -1,0 +1,72 @@
+{
+	"animations": [
+		{
+			"offsets": [
+				-20,
+				633
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "danceRight",
+			"indices": [
+				12,
+				13,
+				14,
+				15,
+				16,
+				17,
+				18,
+				19,
+				20,
+				21,
+				22,
+				23,
+				24
+			],
+			"name": "maquina_wow"
+		},
+		{
+			"offsets": [
+				-20,
+				633
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "danceLeft",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11
+			],
+			"name": "maquina_wow"
+		}
+	],
+	"no_antialiasing": false,
+	"image": "characters/maquinita_FINAL",
+	"position": [
+		0,
+		0
+	],
+	"healthicon": "pointy",
+	"flip_x": false,
+	"healthbar_colors": [
+		63,
+		108,
+		181
+	],
+	"camera_position": [
+		-70,
+		-20
+	],
+	"sing_duration": 6.1,
+	"scale": 0.9
+}

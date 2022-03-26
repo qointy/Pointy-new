@@ -1,0 +1,10 @@
+{
+	"idle_anim": "AAA NEW POINTY idle instancia",
+	"image": "Menu_Pointy",
+	"position": [
+		209,
+		199
+	],
+	"scale": 0.5,
+	"confirm_anim": "M Dad Idle"
+}

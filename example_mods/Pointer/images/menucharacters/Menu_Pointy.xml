@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Menu_Pointy.png">
+	<!-- Created with Adobe Animate version 21.0.0.35450 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="AAA NEW POINTY idle instancia 10000" x="0" y="0" width="524" height="736" frameX="-10" frameY="-17" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10001" x="0" y="0" width="524" height="736" frameX="-10" frameY="-17" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10002" x="524" y="0" width="525" height="741" frameX="0" frameY="-12" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10003" x="524" y="0" width="525" height="741" frameX="0" frameY="-12" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10004" x="1049" y="0" width="518" height="750" frameX="-4" frameY="-3" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10005" x="1049" y="0" width="518" height="750" frameX="-4" frameY="-3" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10006" x="0" y="750" width="518" height="753" frameX="-4" frameY="0" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10007" x="0" y="750" width="518" height="753" frameX="-4" frameY="0" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10008" x="518" y="750" width="517" height="753" frameX="-5" frameY="0" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10009" x="518" y="750" width="517" height="753" frameX="-5" frameY="0" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10010" x="518" y="750" width="517" height="753" frameX="-5" frameY="0" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10011" x="518" y="750" width="517" height="753" frameX="-5" frameY="0" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10012" x="518" y="750" width="517" height="753" frameX="-5" frameY="0" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10013" x="518" y="750" width="517" height="753" frameX="-5" frameY="0" frameWidth="534" frameHeight="753"/>
+	<SubTexture name="AAA NEW POINTY idle instancia 10014" x="518" y="750" width="517" height="753" frameX="-5" frameY="0" frameWidth="534" frameHeight="753"/>
+</TextureAtlas>
