@@ -1508,6 +1508,26 @@ class PlayState extends MusicBeatState
 				//if(ClientPrefs.middleScroll) opponentStrums.members[i].visible = false;
 			}
 
+			for (i in 0...2)
+			{
+				var dName = ["easy", "normal", "hard"];
+				if (SONG.song.toLowerCase() == "revolution")
+				{
+					dName[2] = "challenge";
+				}
+				var d = storyDifficulty;
+				if (i == 0) d = 2;
+
+				var dInd = new FlxSprite(1280 * i, 650, Paths.image("diff/"+dName[d]+"-" + i));
+				dInd.antialiasing = ClientPrefs.globalAntialiasing;
+				var siz = 170;
+				dInd.setGraphicSize(siz);
+				dInd.updateHitbox();
+				dInd.offset.x += siz * i;
+				dInd.cameras = [camHUD];
+				add(dInd);
+			}
+
 			startedCountdown = true;
 			Conductor.songPosition = 0;
 			Conductor.songPosition -= Conductor.crochet * 5;
