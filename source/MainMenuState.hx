@@ -62,6 +62,8 @@ class MainMenuState extends MusicBeatState
 	var logo:FlxSprite;
 	var start:FlxSprite;
 
+	var wFade:FlxSprite = new FlxSprite(0, 0).makeGraphic(3000, 2000, FlxColor.WHITE);
+
 	var pTime = 0.0;
 
 	override function create()
@@ -244,6 +246,18 @@ class MainMenuState extends MusicBeatState
 		}
 		#end
 
+		if (!passed)
+		{
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+			Conductor.changeBPM(102);
+			FlxG.sound.music.fadeIn(4, 0.5, 0.7);
+
+			wFade.scrollFactor.set();
+			wFade.x -= 500;
+			wFade.y -= 500;
+			add(wFade);
+			FlxTween.tween(wFade, {alpha : 0}, 0.5);
+		}
 		super.create();
 	}
 
