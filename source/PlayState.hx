@@ -1167,6 +1167,13 @@ class PlayState extends MusicBeatState
 				case 'senpai' | 'roses' | 'thorns':
 					if(daSong == 'roses') FlxG.sound.play(Paths.sound('ANGRY'));
 					schoolIntro(doof);
+				
+				case 'drift':
+					startVideo("cutscene_1");
+					//var v = new FlxVideo(Paths.video("cutscene_1"));
+					//add(v);
+					generateReceptors();
+					videoFade = new FlxSprite().makeGraphic(2000, 2000, FlxColor.BLACK);
 
 				default:
 					startCountdown();
@@ -1485,7 +1492,18 @@ class PlayState extends MusicBeatState
 	public var countdownReady:FlxSprite;
 	public var countdownSet:FlxSprite;
 	public var countdownGo:FlxSprite;
+	var generated = false;
+	var videoFade:FlxSprite;
 
+	public function generateReceptors()
+	{
+		if (!generated)
+		{
+			generated = true;
+			generateStaticArrows(0);
+			generateStaticArrows(1);
+		}
+	}
 	public function startCountdown():Void
 	{
 		if(startedCountdown) {
@@ -1495,9 +1513,9 @@ class PlayState extends MusicBeatState
 
 		inCutscene = false;
 		var ret:Dynamic = callOnLuas('onStartCountdown', []);
+
 		if(ret != FunkinLua.Function_Stop) {
-			generateStaticArrows(0);
-			generateStaticArrows(1);
+			generateReceptors();
 			for (i in 0...playerStrums.length) {
 				setOnLuas('defaultPlayerStrumX' + i, playerStrums.members[i].x);
 				setOnLuas('defaultPlayerStrumY' + i, playerStrums.members[i].y);
@@ -1660,6 +1678,13 @@ class PlayState extends MusicBeatState
 				swagCounter += 1;
 				// generateSong('fresh');
 			}, 5);
+
+			if (videoFade != null)
+			{
+				videoFade.cameras = [camHUD];
+				add(videoFade);
+				FlxTween.tween(videoFade, {alpha : 0}, 0.5);
+			}
 		}
 	}
 
