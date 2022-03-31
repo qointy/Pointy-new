@@ -2,8 +2,8 @@
 	"animations": [
 		{
 			"offsets": [
-				-20,
-				633
+				100,
+				673
 			],
 			"loop": false,
 			"fps": 24,
@@ -27,8 +27,8 @@
 		},
 		{
 			"offsets": [
-				-20,
-				633
+				100,
+				673
 			],
 			"loop": false,
 			"fps": 24,
@@ -68,5 +68,5 @@
 		-20
 	],
 	"sing_duration": 6.1,
-	"scale": 0.9
+	"scale": 0.7
 }

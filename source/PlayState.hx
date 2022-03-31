@@ -271,6 +271,8 @@ class PlayState extends MusicBeatState
 
 	//tula
 	var FG:FlxTypedGroup<BGSprite>;
+	var chairGF:Array<FlxSprite> = [];
+	var gfIdle:Int = 0;
 
 	override public function create()
 	{
@@ -410,18 +412,46 @@ class PlayState extends MusicBeatState
 				wall.updateHitbox();
 				add(wall);
 
-				var g = new Floor(1280 / 2, 950, 'arcade/bg/floor', 140);
-				add(g);
-
-				var m:BGSprite = new BGSprite('arcade/bg/cabins', -930, -600, 0.7, 1);
-				m.scale.set(0.82, 0.82);
+				var f = new Floor(1280 / 2, 950, 'arcade/bg/floor', 140);
+				add(f);
+			
+				var m:BGSprite = new BGSprite('arcade/bg/cabins', -800, -530, 0.7, 1);
+				m.scale.set(0.75, 0.75);
 				m.updateHitbox();
 				add(m);
 
-				var chairs:BGSprite = new BGSprite('arcade/bg/chairs', -900, -580, 0.71, 1);
-				chairs.scale.set(0.8, 0.8);
+				var chairs:BGSprite = new BGSprite('arcade/bg/chairs', -720, -490, 0.71, 1);
+				chairs.scale.set(0.7, 0.7);
 				chairs.updateHitbox();
 				add(chairs);
+
+				var gPre = ['gf', 'cozy'];
+				
+				for (i in 0...2)
+				{
+					chairGF[i] = new FlxSprite(-80, -120);
+					var g = chairGF[i];
+					
+					g.scale.set(0.9, 0.9);
+					g.frames = Paths.getSparrowAtlas(gPre[i] + "_chair", "shared");
+					g.animation.addByPrefix("idle", gPre[i] + "_idle", 24, false);
+					g.animation.addByPrefix("hey", gPre[i] + "_hey", 24, false);
+
+					if (i == 0)
+					{
+						g.x += 1025;
+						g.y += 110;
+						g.animation.addByIndices("idle0", gPre[i] + "_idle", [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+						g.animation.addByIndices("idle1", gPre[i] + "_idle", [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+					}
+
+					g.scrollFactor.set(0.71, 1);
+					g.animation.play('idle');
+					g.antialiasing = ClientPrefs.globalAntialiasing;
+					g.updateHitbox();
+					g.offset.set(0, 0);
+					add(g);
+				}
 
 				var l:BGSprite = new BGSprite('arcade/bg/light', 0, 0, 1, 1);
 				l.scale.set(0.85, 0.85);
@@ -2902,6 +2932,14 @@ class PlayState extends MusicBeatState
 							case 2: char = gf;
 						}
 				}
+				if (chairGF != [])
+				{
+					if (char == dad && value1 == "hey")
+					{
+						chairGF[1].animation.play("hey");
+						chairGF[1].offset.x = 25;
+					}
+				}
 				char.playAnim(value1, true);
 				char.specialAnim = true;
 
@@ -4204,6 +4242,25 @@ class PlayState extends MusicBeatState
 		if (curBeat % gfSpeed == 0 && !gf.stunned && gf.animation.curAnim.name != null && !gf.animation.curAnim.name.startsWith("sing"))
 		{
 			gf.dance();
+		}
+
+		if (chairGF != [])
+		{
+			if (curBeat % gfSpeed == 0)
+			{
+				if (chairGF[1].animation.curAnim.finished || chairGF[1].animation.curAnim.name.startsWith("idle"))
+				{
+					chairGF[1].animation.play("idle", true);
+					chairGF[1].offset.set(0, 0);
+				}
+				if (chairGF[0].animation.curAnim.finished || chairGF[0].animation.curAnim.name.startsWith("idle"))
+				{
+					chairGF[0].animation.play("idle" + gfIdle);
+					chairGF[0].offset.set(0, 0);
+				}
+				gfIdle ++;
+				gfIdle %= 2;
+			}
 		}
 
 		if(curBeat % 2 == 0) {
