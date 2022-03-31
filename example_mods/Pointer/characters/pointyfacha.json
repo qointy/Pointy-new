@@ -1,167 +1,178 @@
 {
 	"animations": [
 		{
+			"loop": false,
 			"offsets": [
 				-1,
 				0
 			],
-			"loop": false,
-			"anim": "idle",
 			"fps": 24,
-			"name": "underestimating idle",
+			"anim": "idle",
+			"indices": [],
+			"name": "underestimating idle"
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-28,
+				24
+			],
+			"anim": "singUP-alt",
+			"fps": 24,
+			"name": "underestimating up copy",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-38,
+				2
+			],
+			"anim": "singRIGHT-alt",
+			"fps": 24,
+			"name": "underestimating right copy",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-38,
+				2
+			],
+			"anim": "singRIGHT",
+			"fps": 24,
+			"name": "underestimating right",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-28,
+				24
+			],
+			"anim": "singUP",
+			"fps": 24,
+			"name": "underestimating up",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-39,
+				-2
+			],
+			"anim": "singDOWN",
+			"fps": 24,
+			"name": "underestimating down",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				-39,
+				-2
+			],
+			"anim": "singDOWN-alt",
+			"fps": 24,
+			"name": "underestimating down copy",
+			"indices": []
+		},
+		{
+			"loop": false,
+			"offsets": [
+				18,
+				1
+			],
+			"anim": "singLEFT",
+			"fps": 24,
+			"name": "underestimating left",
+			"indices": [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12,
+				13,
+				14
+			]
+		},
+		{
+			"loop": false,
+			"offsets": [
+				18,
+				1
+			],
+			"anim": "singLEFT-alt",
+			"fps": 24,
+			"name": "underestimating left copy",
 			"indices": []
 		},
 		{
 			"offsets": [
-				-28,
-				24
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP-alt",
-			"indices": [],
-			"name": "underestimating up copy"
-		},
-		{
-			"offsets": [
-				-38,
-				2
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHT-alt",
-			"indices": [],
-			"name": "underestimating right copy"
-		},
-		{
-			"offsets": [
-				-38,
-				2
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singRIGHT",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
 				10,
-				11,
-				12,
-				13,
-				14
+				34
 			],
-			"name": "underestimating right"
-		},
-		{
-			"offsets": [
-				-28,
-				24
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singUP",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14
-			],
-			"name": "underestimating up"
-		},
-		{
-			"offsets": [
-				-39,
-				-2
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14
-			],
-			"name": "underestimating down"
-		},
-		{
-			"offsets": [
-				-39,
-				-2
-			],
-			"loop": false,
-			"fps": 24,
-			"anim": "singDOWN-alt",
 			"indices": [],
-			"name": "underestimating down copy"
-		},
-		{
-			"offsets": [
-				18,
-				1
-			],
-			"loop": false,
 			"fps": 24,
-			"anim": "singLEFT",
-			"indices": [
-				0,
-				1,
-				2,
-				3,
-				4,
-				5,
-				6,
-				7,
-				8,
-				9,
-				10,
-				11,
-				12,
-				13,
-				14
-			],
-			"name": "underestimating left"
-		},
-		{
-			"offsets": [
-				18,
-				1
-			],
+			"anim": "hey",
 			"loop": false,
-			"fps": 24,
-			"anim": "singLEFT-alt",
-			"indices": [],
-			"name": "underestimating left copy"
+			"name": "COME ON!"
 		}
 	],
 	"no_antialiasing": false,
