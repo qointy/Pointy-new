@@ -48,6 +48,50 @@
 				11
 			],
 			"name": "maquina_wow"
+		},
+		{
+			"offsets": [
+				100,
+				673
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singUp",
+			"indices": [0],
+			"name": "maquina_wow"
+		},
+		{
+			"offsets": [
+				100,
+				673
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singDown",
+			"indices": [0],
+			"name": "maquina_wow"
+		},
+		{
+			"offsets": [
+				100,
+				673
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singLeft",
+			"indices": [0],
+			"name": "maquina_wow"
+		},
+		{
+			"offsets": [
+				100,
+				673
+			],
+			"loop": false,
+			"fps": 24,
+			"anim": "singRight",
+			"indices": [0],
+			"name": "maquina_wow"
 		}
 	],
 	"no_antialiasing": false,
@@ -56,12 +100,12 @@
 		0,
 		0
 	],
-	"healthicon": "pointy",
+	"healthicon": "maquina",
 	"flip_x": false,
 	"healthbar_colors": [
-		63,
-		108,
-		181
+		65,
+		65,
+		65
 	],
 	"camera_position": [
 		-70,
