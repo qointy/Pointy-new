@@ -3107,7 +3107,7 @@
 						-1,
 						"Change Scroll Speed",
 						"2",
-						"1"
+						"0.5"
 					]
 				],
 				"typeOfSection": 0,
@@ -6587,6 +6587,16 @@
 				"mustHitSection": true,
 				"changeBPM": false,
 				"bpm": 126
+			},
+			{
+				"gfSection": false,
+				"lengthInSteps": 16,
+				"altAnim": false,
+				"typeOfSection": 0,
+				"sectionNotes": [],
+				"bpm": 126,
+				"changeBPM": false,
+				"mustHitSection": true
 			},
 			{
 				"gfSection": false,
