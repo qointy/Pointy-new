@@ -272,7 +272,9 @@ class PlayState extends MusicBeatState
 	//tula
 	var FG:FlxTypedGroup<BGSprite>;
 	var chairGF:Array<FlxSprite> = [];
+	var areThereGFs = false;
 	var gfIdle:Int = 0;
+	public static var isInst:Bool = false;
 
 	override public function create()
 	{
@@ -427,6 +429,7 @@ class PlayState extends MusicBeatState
 
 				var gPre = ['gf', 'cozy'];
 				
+				areThereGFs = true;
 				for (i in 0...2)
 				{
 					chairGF[i] = new FlxSprite(-80, -120);
@@ -459,6 +462,8 @@ class PlayState extends MusicBeatState
 				l.screenCenter();
 				l.x -= 30;
 				FG.add(l);
+			case 'pov':
+				//boyfriend.scrollFactor.set(0, 0);
 			case 'stage': //Week 1
 				var bg:BGSprite = new BGSprite('stageback', -600, -200, 0.9, 0.9);
 				add(bg);
@@ -1556,24 +1561,27 @@ class PlayState extends MusicBeatState
 				//if(ClientPrefs.middleScroll) opponentStrums.members[i].visible = false;
 			}
 
-			for (i in 0...2)
+			if (SONG.needsVoices)
 			{
-				var dName = ["easy", "normal", "hard"];
-				if (SONG.song.toLowerCase() == "revolution")
+				for (i in 0...2)
 				{
-					dName[2] = "challenge";
-				}
-				var d = storyDifficulty;
-				if (i == 0) d = 2;
+					var dName = ["easy", "normal", "hard"];
+					if (SONG.song.toLowerCase() == "revolution")
+					{
+						dName[2] = "challenge";
+					}
+					var d = storyDifficulty;
+					if (i == 0) d = 2;
 
-				var dInd = new FlxSprite(1280 * i, 650, Paths.image("diff/"+dName[d]+"-" + i));
-				dInd.antialiasing = ClientPrefs.globalAntialiasing;
-				var siz = 170;
-				dInd.setGraphicSize(siz);
-				dInd.updateHitbox();
-				dInd.offset.x += siz * i;
-				dInd.cameras = [camHUD];
-				add(dInd);
+					var dInd = new FlxSprite(1280 * i, 650, Paths.image("diff/"+dName[d]+"-" + i));
+					dInd.antialiasing = ClientPrefs.globalAntialiasing;
+					var siz = 170;
+					dInd.setGraphicSize(siz);
+					dInd.updateHitbox();
+					dInd.offset.x += siz * i;
+					dInd.cameras = [camHUD];
+					add(dInd);
+				}
 			}
 
 			startedCountdown = true;
@@ -2932,7 +2940,7 @@ class PlayState extends MusicBeatState
 							case 2: char = gf;
 						}
 				}
-				if (chairGF != [])
+				if (areThereGFs)
 				{
 					if (char == dad && value1 == "hey")
 					{
@@ -4244,7 +4252,7 @@ class PlayState extends MusicBeatState
 			gf.dance();
 		}
 
-		if (chairGF != [])
+		if (areThereGFs)
 		{
 			if (curBeat % gfSpeed == 0)
 			{

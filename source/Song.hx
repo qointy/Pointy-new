@@ -52,10 +52,15 @@ class Song
 		this.bpm = bpm;
 	}
 
-	public static function loadFromJson(jsonInput:String, ?folder:String):SwagSong
+	public static function loadFromJson(jsonInput:String, ?folder:String = ""):SwagSong
 	{
 		var rawJson = null;
 		
+		if (folder.endsWith("-inst"))
+		{
+			jsonInput = folder;
+			folder = folder.replace("-inst", "");
+		}
 		var formattedFolder:String = Paths.formatToSongPath(folder);
 		var formattedSong:String = Paths.formatToSongPath(jsonInput);
 		#if MODS_ALLOWED

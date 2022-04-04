@@ -472,7 +472,10 @@ class Note extends FlxSprite
 
 			if (strumTime <= Conductor.songPosition)
 				wasGoodHit = true;
+		}
 
+		if (!mustPress || !PlayState.SONG.needsVoices)
+		{
 			if (!pointyR)
 			{
 				pointyR = true;

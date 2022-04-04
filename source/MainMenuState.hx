@@ -58,6 +58,7 @@ class MainMenuState extends MusicBeatState
 	var btt:Array<FlxSprite> = [];
 	var show:Array<FlxSprite> = [];
 	var prevBorder:FlxSprite;
+	var prevs:Array<FlxSprite> = [];
 
 	var logo:FlxSprite;
 	var start:FlxSprite;
@@ -146,11 +147,6 @@ class MainMenuState extends MusicBeatState
 		l[3] = logo;
 		add(logo);
 
-		prevBorder = new FlxSprite().loadGraphic(Paths.image("menu/menupreview"));
-		l[2] = prevBorder;
-		prevBorder.alpha = 0;
-		add(prevBorder);
-
 		l[4] = new FlxSprite().loadGraphic(Paths.image("menu/start"));
 		add(l[4]);
 		start = l[4];
@@ -172,7 +168,19 @@ class MainMenuState extends MusicBeatState
 			show[i].antialiasing = ClientPrefs.globalAntialiasing;
 			show[i].screenCenter();
 			add(show[i]);
+
+			prevs[i] = new FlxSprite().loadGraphic(Paths.image("menu/prev/"+bttName[i]));
+			prevs[i].scrollFactor.set();
+			prevs[i].alpha = 0;
+			prevs[i].antialiasing = ClientPrefs.globalAntialiasing;
+			prevs[i].screenCenter();
+			add(prevs[i]);
 		}
+
+		prevBorder = new FlxSprite().loadGraphic(Paths.image("menu/menupreview"));
+		l[2] = prevBorder;
+		prevBorder.alpha = 0;
+		add(prevBorder);
 
 		for (i in 0...l.length)
 		{
@@ -333,6 +341,8 @@ class MainMenuState extends MusicBeatState
 
 				if (show[i].alpha < 0) show[i].alpha = 0;
 				if (show[i].alpha > 1) show[i].alpha = 1;
+
+				prevs[i].alpha = show[i].alpha;
 			}
 		}
 
