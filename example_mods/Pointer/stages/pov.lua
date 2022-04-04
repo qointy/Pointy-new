@@ -1,3 +1,4 @@
+adjusted = false;
 function onCreate()
     makeLuaSprite("bg", "solo_bg", 0, 0);
     setProperty("bg.scrollFactor.x", 0);
@@ -14,14 +15,18 @@ function onCreate()
 end
 
 function onUpdate(elapsed)
-    setProperty("boyfriend.scrollFactor.x", 0);
-    setProperty("boyfriend.scrollFactor.y", 0);
+    if (not adjusted) then
+        setProperty("boyfriend.scrollFactor.x", 0);
+        setProperty("boyfriend.scrollFactor.y", 0);
 
-    setProperty("dad.alpha", 0);
-    setProperty("gf.alpha", 0);
+        setProperty("dad.alpha", 0);
+        setProperty("gf.alpha", 0);
 
-    for i = 0, 3, 1
-	do
-		setPropertyFromGroup('opponentStrums', i, 'x', -1000);
+        for i = 0, 3, 1
+        do
+            setPropertyFromGroup('opponentStrums', i, 'x', -1000);
+        end
+
+        adjusted = true;
     end
 end

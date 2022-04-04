@@ -1804,21 +1804,23 @@ class PlayState extends MusicBeatState
 
 		var songName:String = Paths.formatToSongPath(SONG.song);
 		var file:String = Paths.json(songName + '/events');
-		if (!SONG.needsVoices) file = "cock.jpeg";
-
-		#if sys
-		if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file)) {
-		#else
-		if (OpenFlAssets.exists(file)) {
-		#end
-			var eventsData:Array<SwagSection> = Song.loadFromJson('events', songName).notes;
-			for (section in eventsData)
-			{
-				for (songNotes in section.sectionNotes)
+		
+		if (SONG.needsVoices)
+		{
+			#if sys
+			if (FileSystem.exists(Paths.modsJson(songName + '/events')) || FileSystem.exists(file)) {
+			#else
+			if (OpenFlAssets.exists(file)) {
+			#end
+				var eventsData:Array<SwagSection> = Song.loadFromJson('events', songName).notes;
+				for (section in eventsData)
 				{
-					if(songNotes[1] < 0) {
-						eventNotes.push([songNotes[0] + ClientPrefs.noteOffset, songNotes[1], songNotes[2], songNotes[3], songNotes[4]]);
-						eventPushed(songNotes);
+					for (songNotes in section.sectionNotes)
+					{
+						if(songNotes[1] < 0) {
+							eventNotes.push([songNotes[0] + ClientPrefs.noteOffset, songNotes[1], songNotes[2], songNotes[3], songNotes[4]]);
+							eventPushed(songNotes);
+						}
 					}
 				}
 			}
@@ -1955,8 +1957,16 @@ class PlayState extends MusicBeatState
 		generatedMusic = true;
 	}
 
+	var spdChanges:Array<Dynamic> = [[]];
+	var areThereSpdChanges = false;
 	function eventPushed(event:Array<Dynamic>) {
 		switch(event[2]) {
+			case 'Change Scroll Speed':
+				if (event[4] == "0" || event[4] == 0)
+				{
+					areThereSpdChanges = true;
+					spdChanges.push([event[0], Std.parseFloat(event[3])]);
+				}
 			case 'Change Character':
 				var charType:Int = 0;
 				switch(event[3].toLowerCase()) {
@@ -2547,7 +2557,33 @@ class PlayState extends MusicBeatState
 
 						if (daNote.mainSus && daNote.y > center) daNote.y = center;
 					} else {
+
 						daNote.y = (strumY - 0.45 * (Conductor.songPosition - daNote.strumTime) * roundedSpeed);
+						/*
+						if (!areThereSpdChanges)
+						{
+						}
+						else
+						{
+							var sTime = Conductor.songPosition - daNote.strumTime;
+							var yy = 0.0;
+							var curSpd:Float = SONG.speed;
+							var curSTime = 0.0;
+							for (i in 0...spdChanges.length)
+							{
+								if (daNote.strumTime < spdChanges[i][0])
+								{
+									yy += curSpd * (daNote.strumTime - curSTime);
+									break;
+								}
+								yy += curSpd * spdChanges[i][0];
+								curSpd = spdChanges[i][1] * SONG.speed;
+								curSTime = spdChanges[i][0];
+							}
+							yy -= Conductor.songPosition * roundedSpeed;
+							daNote.y = (strumY + 0.45 * yy);
+						}
+						*/
 
 						if (daNote.mainSus && daNote.y < center) daNote.y = center;
 					}
