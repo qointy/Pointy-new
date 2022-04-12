@@ -20,6 +20,7 @@ class Main extends Sprite
 	var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 	public static var fpsVar:FPS;
 	public static var passed:Bool = false;
+	public static var storyPercent:Float = 0.0;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 

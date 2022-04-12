@@ -189,6 +189,7 @@ class StoryDifficulty extends MusicBeatState
 					{
 						FlxFlicker.flicker(sel[i], 1, 0.06, false, false, function(flick:FlxFlicker)
 						{
+							Main.storyPercent = 0;
 							var songArray:Array<String> = [];
 							var leWeek:Array<Dynamic> = WeekData.weeksLoaded.get(WeekData.weeksList[0]).songs;
 							WeekData.setDirectoryFromWeek(WeekData.weeksLoaded.get(WeekData.weeksList[0]));

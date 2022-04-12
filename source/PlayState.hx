@@ -3233,6 +3233,8 @@ class PlayState extends MusicBeatState
 		}
 	}
 
+	var ending = true;
+	var leaveOpen = false;
 
 	var transitioning = false;
 	public function endSong():Void
@@ -3306,30 +3308,69 @@ class PlayState extends MusicBeatState
 
 				storyPlaylist.remove(storyPlaylist[0]);
 
+				Main.storyPercent += (ratingPercent * 100) / 3;
+
 				if (storyPlaylist.length <= 0)
 				{
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
+					var endIt = true;
+					if (SONG.song.toLowerCase() == "revolution" && ending)
+					{
+						ending = false;
+						transitioning = false;
+						leaveOpen = true;
+						endIt = false;
 
-					cancelFadeTween();
-					CustomFadeTransition.nextCamera = camOther;
-					if(FlxTransitionableState.skipNextTransIn) {
-						CustomFadeTransition.nextCamera = null;
-					}
-					MusicBeatState.switchState(new StoryDifficulty());
+						var isPointyAngry = "0";
+						var isPlayerBad = "1";
+						if (ClientPrefs.downScroll) isPointyAngry = "1";
 
-					// if ()
-					if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
-						StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
-
-						if (SONG.validScore)
+						trace(Main.storyPercent);
+						if ((storyDifficulty == 2 && Main.storyPercent > 94) || (storyDifficulty == 1 && Main.storyPercent > 99)) //pa no ponerle 100
 						{
-							Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
+							isPlayerBad = "0";
+
+							var k = ClientPrefs.keyBinds;
+							var kl = k['note_left'];
+							var kr = k['note_right'];
+							var ku = k['note_up'];
+							var kd = k['note_down'];
+							if ((ku[0] == W && kl[0] == A && kd[0] == S && kr[0] == D) || (ku[1] == W && kl[1] == A && kd[1] == S && kr[1] == D))
+							{
+								isPlayerBad = "1";
+							}
 						}
 
-						FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
-						FlxG.save.flush();
+						var bs = new FlxSprite().makeGraphic(2000, 2000, FlxColor.BLACK);
+						bs.cameras = [camHUD];
+						add(bs);
+						startVideo("end_" + isPointyAngry + isPlayerBad);
 					}
-					changedDifficulty = false;
+
+					if (endIt)
+					{
+						FlxG.sound.playMusic(Paths.music('freakyMenu'));
+
+						cancelFadeTween();
+						CustomFadeTransition.nextCamera = camOther;
+						if(FlxTransitionableState.skipNextTransIn) {
+							CustomFadeTransition.nextCamera = null;
+						}
+						MusicBeatState.switchState(new StoryDifficulty());
+
+						// if ()
+						if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {
+							StoryMenuState.weekCompleted.set(WeekData.weeksList[storyWeek], true);
+
+							if (SONG.validScore)
+							{
+								Highscore.saveWeekScore(WeekData.getWeekFileName(), campaignScore, storyDifficulty);
+							}
+
+							FlxG.save.data.weekCompleted = StoryMenuState.weekCompleted;
+							FlxG.save.flush();
+						}
+						changedDifficulty = false;
+					}
 				}
 				else
 				{
@@ -3382,7 +3423,11 @@ class PlayState extends MusicBeatState
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
 			}
-			transitioning = true;
+			if (!leaveOpen)
+			{
+				transitioning = true;
+			}
+			leaveOpen = false;
 		}
 	}
 
