@@ -67,6 +67,8 @@ class MainMenuState extends MusicBeatState
 
 	var pTime = 0.0;
 
+	var prevY = 40.0;
+
 	override function create()
 	{
 		#if desktop
@@ -160,24 +162,27 @@ class MainMenuState extends MusicBeatState
 			btt[i].antialiasing = ClientPrefs.globalAntialiasing;
 			btt[i].screenCenter();
 			btt[i].x = -w;
+			btt[i].y += prevY;
 			add(btt[i]);
 
-			show[i] = new FlxSprite().loadGraphic(Paths.image("menu/"+bttName[i]+"screen"));
+			show[i] = new FlxSprite(0, prevY).loadGraphic(Paths.image("menu/"+bttName[i]+"screen"));
 			show[i].scrollFactor.set();
 			show[i].alpha = 0;
 			show[i].antialiasing = ClientPrefs.globalAntialiasing;
 			show[i].screenCenter();
+			show[i].y += prevY;
 			add(show[i]);
 
-			prevs[i] = new FlxSprite().loadGraphic(Paths.image("menu/prev/"+bttName[i]));
+			prevs[i] = new FlxSprite(0, prevY).loadGraphic(Paths.image("menu/prev/"+bttName[i]));
 			prevs[i].scrollFactor.set();
 			prevs[i].alpha = 0;
 			prevs[i].antialiasing = ClientPrefs.globalAntialiasing;
 			prevs[i].screenCenter();
+			prevs[i].y += prevY;
 			add(prevs[i]);
 		}
 
-		prevBorder = new FlxSprite().loadGraphic(Paths.image("menu/menupreview"));
+		prevBorder = new FlxSprite(0, prevY).loadGraphic(Paths.image("menu/menupreview"));
 		l[2] = prevBorder;
 		prevBorder.alpha = 0;
 		add(prevBorder);
@@ -189,6 +194,7 @@ class MainMenuState extends MusicBeatState
 			l[i].antialiasing = ClientPrefs.globalAntialiasing;
 		}
 		logo.y -= 120;
+		prevBorder.y += prevY;
 
 		camFollow = new FlxObject(0, 0, 1, 1);
 		camFollowPos = new FlxObject(0, 0, 1, 1);
