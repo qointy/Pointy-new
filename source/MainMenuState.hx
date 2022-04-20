@@ -152,6 +152,7 @@ class MainMenuState extends MusicBeatState
 		l[4] = new FlxSprite().loadGraphic(Paths.image("menu/start"));
 		add(l[4]);
 		start = l[4];
+		start.visible = false;
 
 		for (i in 0...bttName.length)
 		{
@@ -193,7 +194,7 @@ class MainMenuState extends MusicBeatState
 			l[i].screenCenter();
 			l[i].antialiasing = ClientPrefs.globalAntialiasing;
 		}
-		logo.y -= 120;
+		//logo.y -= 120;
 		prevBorder.y += prevY;
 
 		camFollow = new FlxObject(0, 0, 1, 1);
@@ -408,8 +409,8 @@ class MainMenuState extends MusicBeatState
 									case 'mods':
 										MusicBeatState.switchState(new ModsMenuState());
 									#end
-									case 'awards':
-										MusicBeatState.switchState(new AchievementsMenuState());
+									case 'extras':
+										MusicBeatState.switchState(new ExtrasMenu());
 									case 'credits':
 										MusicBeatState.switchState(new CreditsState());
 									case 'options':

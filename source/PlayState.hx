@@ -2736,7 +2736,14 @@ class PlayState extends MusicBeatState
 				vocals.stop();
 				FlxG.sound.music.stop();
 
-				openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x - boyfriend.positionArray[0], boyfriend.getScreenPosition().y - boyfriend.positionArray[1], camFollowPos.x, camFollowPos.y));
+				if (SONG.needsVoices)
+					openSubState(new GameOverSubstate(boyfriend.getScreenPosition().x - boyfriend.positionArray[0], boyfriend.getScreenPosition().y - boyfriend.positionArray[1], camFollowPos.x, camFollowPos.y));
+				else
+					FlxTransitionableState.skipNextTransIn = true;
+		    		FlxTransitionableState.skipNextTransOut = true;
+					ExtrasMenu.gameOver = true;
+					MusicBeatState.switchState(new ExtrasMenu());
+
 				for (tween in modchartTweens) {
 					tween.active = true;
 				}
@@ -3419,7 +3426,31 @@ class PlayState extends MusicBeatState
 				if(FlxTransitionableState.skipNextTransIn) {
 					CustomFadeTransition.nextCamera = null;
 				}
-				MusicBeatState.switchState(new FreeplayState());
+				if (SONG.needsVoices)
+				{
+					MusicBeatState.switchState(new FreeplayState());
+				}
+				else
+				{
+					var r = ratingPercent * 100;
+					//trace(FlxG.save.data.instRecords);
+					if (r > FlxG.save.data.instRecords[ExtrasMenu.lastSel]) //troleador cara
+					{
+						FlxG.save.data.instRecords[ExtrasMenu.lastSel] = r;
+						if (songMisses == 0)
+						{
+							FlxG.save.data.instFC[ExtrasMenu.lastSel] = true;
+						}
+						else
+						{
+							FlxG.save.data.instFC[ExtrasMenu.lastSel] = false;
+						}
+						FlxG.save.flush();
+					}
+					FlxTransitionableState.skipNextTransIn = true;
+                	FlxTransitionableState.skipNextTransOut = true;
+					MusicBeatState.switchState(new ExtrasMenu());
+				}
 				FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				changedDifficulty = false;
 			}
