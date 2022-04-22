@@ -76,6 +76,17 @@ class MainMenuState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
+		if (FlxG.save.data.ending == null)
+		{
+			FlxG.save.data.ending = [[], []];
+			FlxG.save.data.ending[0][0] = false;
+			FlxG.save.data.ending[0][1] = false;
+			FlxG.save.data.ending[1][0] = false;
+			FlxG.save.data.ending[1][0] = false;
+
+			FlxG.save.flush();
+		}
+
 		passed = Main.passed;
 
 		WeekData.setDirectoryFromWeek();

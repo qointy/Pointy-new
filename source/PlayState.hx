@@ -913,7 +913,8 @@ class PlayState extends MusicBeatState
 
 		Conductor.songPosition = -5000;
 
-		strumLine = new FlxSprite(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, 50).makeGraphic(FlxG.width, 10);
+		var toMiddle = ClientPrefs.middleScroll && SONG.needsVoices;
+		strumLine = new FlxSprite(toMiddle ? STRUM_X_MIDDLESCROLL : STRUM_X, 50).makeGraphic(FlxG.width, 10);
 		strumUpY = strumLine.y + 70;
 		if(ClientPrefs.downScroll) strumLine.y = FlxG.height - 150;
 		strumLine.scrollFactor.set();
@@ -1900,7 +1901,7 @@ class PlayState extends MusicBeatState
 							{
 								sustainNote.x += FlxG.width / 2; // general offset
 							}
-							else if(ClientPrefs.middleScroll)
+							else if(ClientPrefs.middleScroll && SONG.needsVoices)
 							{
 								sustainNote.x += 310;
 								if(daNoteData > 1)
@@ -1915,7 +1916,7 @@ class PlayState extends MusicBeatState
 					{
 						swagNote.x += FlxG.width / 2; // general offset
 					}
-					else if(ClientPrefs.middleScroll)
+					else if(ClientPrefs.middleScroll && SONG.needsVoices)
 					{
 						swagNote.x += 310;
 						if(daNoteData > 1) //Up and Right
@@ -2019,12 +2020,13 @@ class PlayState extends MusicBeatState
 		{
 			// FlxG.log.add(i);
 			var targetAlpha:Float = 1;
-			if (player < 1 && ClientPrefs.middleScroll) targetAlpha = 0.5;
+			if (player < 1 && ClientPrefs.middleScroll &&  SONG.needsVoices) targetAlpha = 0.5;
 
 			var bbY = strumLine.y;
 			if (player == 0 && ClientPrefs.downScroll) bbY = strumUpY;
 
-			var babyArrow:StrumNote = new StrumNote(ClientPrefs.middleScroll ? STRUM_X_MIDDLESCROLL : STRUM_X, bbY, i, player);
+			var toMiddle = ClientPrefs.middleScroll && SONG.needsVoices;
+			var babyArrow:StrumNote = new StrumNote(toMiddle ? STRUM_X_MIDDLESCROLL : STRUM_X, bbY, i, player);
 			if (!isStoryMode)
 			{
 				babyArrow.y -= 10;
@@ -2042,7 +2044,7 @@ class PlayState extends MusicBeatState
 			}
 			else
 			{
-				if(ClientPrefs.middleScroll)
+				if(ClientPrefs.middleScroll && SONG.needsVoices)
 				{
 					babyArrow.x += 310;
 					if(i > 1) { //Up and Right
@@ -3336,6 +3338,7 @@ class PlayState extends MusicBeatState
 						{
 							isPlayerBad = "0";
 
+							/*
 							var k = ClientPrefs.keyBinds;
 							var kl = k['note_left'];
 							var kr = k['note_right'];
@@ -3345,11 +3348,14 @@ class PlayState extends MusicBeatState
 							{
 								isPlayerBad = "1";
 							}
+							*/
 						}
 
 						var bs = new FlxSprite().makeGraphic(2000, 2000, FlxColor.BLACK);
 						bs.cameras = [camHUD];
 						add(bs);
+						FlxG.save.data.ending[Std.parseInt(isPointyAngry)][Std.parseInt(isPlayerBad)] = true;
+						FlxG.save.flush();
 						startVideo("end_" + isPointyAngry + isPlayerBad);
 					}
 
@@ -3362,7 +3368,8 @@ class PlayState extends MusicBeatState
 						if(FlxTransitionableState.skipNextTransIn) {
 							CustomFadeTransition.nextCamera = null;
 						}
-						MusicBeatState.switchState(new StoryDifficulty());
+						MainMenuState.curSelected = 4;
+						MusicBeatState.switchState(new MainMenuState());
 
 						// if ()
 						if(!ClientPrefs.getGameplaySetting('practice', false) && !ClientPrefs.getGameplaySetting('botplay', false)) {

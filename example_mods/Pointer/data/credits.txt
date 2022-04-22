@@ -1,0 +1,14 @@
+Arcade Date 1st Mix
+PointyESM::pointy::Sprite artist, animator & Charter::https://twitter.com/PointyyESM::0xFF4141DC
+MVS::mvs::Main Composer & Icon artist::https://twitter.com/MarxVanilla::0xFFFF1C59
+srPerez::srperez::Coder::https://twitter.com/NewSrPerez::0xFFFF8400
+teeth::teethlust::Background & UI artist::https://twitter.com/teethlust::0xFF4C1F5B
+CozyNosy::cozynosy::Main Menu sketches::https://twitter.com/cozynosy_::0xFFFF8AC4
+EbolaHorny::ebola::Cutscene art::https://twitter.com/EbolaHorny::0xFF573EC6
+
+With help from
+  JustDemianAgain::none::Composer of ending themes 3 & 4::https://www.youtube.com/channel/UCObljFtcK5Dq_JVllioEX6g::0xFF7F7F8E
+  iefCuadricula::none::Pointy render::https://twitter.com/ief_Cuadricula::0xFF7F7F8E
+  poncho::none::Title logo::no-links::0xFF7F7F8E
+  VtroyJerof::none::Pointy chromatic::https://twitter.com/VtroyJ::0xFF7F7F8E
+  Random Inc.::none::Composer of the Menu theme and\nending themes 1 & 2::https://twitter.com/RandomIncIsDead::0xFF7F7F8E

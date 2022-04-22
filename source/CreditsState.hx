@@ -40,7 +40,8 @@ class CreditsState extends MusicBeatState
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+		bg = new FlxSprite().loadGraphic(Paths.image('menu/prev/pointy_menu_credits'));
+		bg.screenCenter(Y);
 		add(bg);
 
 		grpOptions = new FlxTypedGroup<Alphabet>();
